@@ -1,0 +1,9 @@
+$('.selected-email-object').empty().append("<%= j @email.object %>");
+$('.selected-email-body').text("<%= j @email.body %>");
+$('.selected-email-buttons').empty().append("<%= j render 'emails/buttons', email: @email %>");
+
+// Donner la classe active à l'email sélectionné et l'enlever aux autres
+$('.email').removeClass('active');
+$('#<%= @email.id_attr() %>').addClass('active');
+// Et lui enlever la classe secondary
+$('#<%= @email.id_attr() %>').removeClass('list-group-item-secondary');

@@ -1,0 +1,8 @@
+<%= link_to 'Delete', email_path(email), method: :delete, class: 'btn btn-primary  btn-sm delete-email',remote: true %>
+<%= link_to email_path(email), method: :put, class: 'btn  btn-sm btn-primary ml-3 update-read', data: { params: {read: false}.to_param }, remote: true do %>
+	<% if email.read %>
+		Mark as unread
+	<% else %>
+		Mark as read
+	<% end %>
+<% end %>

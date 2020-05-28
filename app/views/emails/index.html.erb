@@ -1,0 +1,39 @@
+
+<div class="bg-dark fill">
+  <!-- BOUTON NEW EMAIL -->
+  <div>
+    <div id="new-email" class="col py-3 text-center bg-dark">
+      <%= link_to emails_path, method: :post, class: "btn btn-danger align-self-center",remote: true do %>Pour encore plus d'amour c'est par ici<% end %>
+    </div>
+  </div>
+
+  <!-- Emails -->
+  <div class="d-flex justify-content-between">
+    <div class="col-3 bg-dark text-white">
+      <div class="list-group list-group-flush emails">
+        <div class="list-group-item font-weigth-bold h4 bg-dark">Emails from :</div>
+        <% @emails.each do |email| %>
+            <% if email.read %>
+              <%= link_to email_path(email), id: email.id_attr(), class: "list-group-item list-group-item-action email bg-success text-light",remote: true do %><%= email.object %><% end %>
+            <% else %>
+              <%= link_to email_path(email), id: email.id_attr(), class: "list-group-item list-group-item-secondary list-group-item-action email bg-secondary active text-light",remote: true do %><%= email.object %><% end %>
+            <% end %>  
+          <% end %>
+      </div>
+    </div>
+    <!-- /#emails -->
+
+    <!-- Email Content -->
+    <div class="container-fluid bg-dark text-white fill">
+      <div class="p-4">
+        <h1 class="selected-email-object"></h1>
+        <p class="selected-email-body"></p>
+        <div class="text-left selected-email-buttons"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-dark">
+  <p>salut</p>
+  </div>
+</div>
+
